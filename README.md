@@ -9,6 +9,14 @@ Astroで制作した個人Webサイトの初期プロトタイプです。オフ
 - WORK・JOURNAL・ESSAYのカードから個別の詳細ページを開けます。
 - 初期コンテンツには仮内容が含まれます。HISTORYの小学校時代の項目は自分史に基づく仮要約です。
 
+## サイトのアイコン
+
+提供写真の人物部分を正方形で切り抜き、タブ用のファビコンとスマホのホーム画面用アイコンを設定しています。顔や写真の生成・補正は行っていません。HOMEの元画像は変更していません。
+
+アイコン画像は `public/favicon.ico`、`public/apple-touch-icon.png`、`public/icons/`、スマホ向け設定は `public/site.webmanifest` にあります。共通の指定は `src/components/SiteIcons.astro`（HOME・記事ページ）と `public/admin/index.html`（管理画面）です。`node scripts/generate-site-icons.mjs` で既存の写真から再作成できます。生成済み画像を保存しているため、通常のビルドでは再生成不要です。
+
+変更後はGitHubに保存してCloudflareの公開完了を待ちます。古いアイコンが残る場合はタブを閉じて開き直してください。ホーム画面に追加済みの場合は、そのショートカットを削除して追加し直す必要がある場合があります。
+
 ## ローカルで表示する
 
 Node.js 22を使用します。

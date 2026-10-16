@@ -1,0 +1,15 @@
+{
+  "id": "/",
+  "name": "Tensho Nishida — Personal Archive",
+  "short_name": "Tensho Nishida",
+  "lang": "ja",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "theme_color": "#102d25",
+  "background_color": "#f2efe7",
+  "icons": [
+    { "src": "/icons/tensho-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/tensho-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

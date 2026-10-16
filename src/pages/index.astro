@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SiteIcons from '../components/SiteIcons.astro';
 import { getCollection } from 'astro:content';
 import about from '../content/site/about.json';
 import historyData from '../content/site/history.json';
@@ -20,6 +21,7 @@ const displayDate = (date) => String(date).replaceAll('-', '.');
     <meta name="description" content="西田天祥 — 食卓から、人と社会を考える。歩みと活動、日々の記録をまとめた個人サイト。" />
     <meta name="theme-color" content="#102d25" />
     <title>Tensho Nishida — Personal Archive</title>
+    <SiteIcons />
   </head>
   <body>
     <div class="page-progress" aria-hidden="true"><span></span></div>

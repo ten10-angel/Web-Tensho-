@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SiteIcons from '../components/SiteIcons.astro';
 
 const { title, date, section, summary } = Astro.props;
 const displayDate = String(date).replaceAll('-', '.');
@@ -12,6 +13,7 @@ const displayDate = String(date).replaceAll('-', '.');
     <meta name="description" content={summary} />
     <meta name="theme-color" content="#10362c" />
     <title>{title} — Tensho Nishida</title>
+    <SiteIcons />
   </head>
   <body class="article-page">
     <header class="article-header">
