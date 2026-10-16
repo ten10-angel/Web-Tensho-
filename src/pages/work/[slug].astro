@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('work', ({ data }) => data.published);
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<ArticleLayout title={entry.data.title} date={entry.data.date} section="WORK" summary={entry.data.summary}>
+  {entry.data.photos.length > 0 && (
+    <div class="work-gallery">
+      {entry.data.photos.map((photo) => (
+        <figure><img src={photo.image} alt={photo.alt || entry.data.title} loading="lazy" /><figcaption>{photo.alt}</figcaption></figure>
+      ))}
+    </div>
+  )}
+  {entry.data.photos.length === 0 && <div class={`article-placeholder ${entry.data.placeholderStyle || 'work-a'}`} aria-label="仮の作品ビジュアル"></div>}
+  <div class="article-prose"><Content /></div>
+</ArticleLayout>
