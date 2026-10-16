@@ -3,6 +3,7 @@ backend:
   name: github
   repo: ten10-angel/Web-Tensho-
   branch: main
+  site_domain: silly-mochi-3a18fb.netlify.app
 
 publish_mode: editorial_workflow
 media_folder: public/uploads
