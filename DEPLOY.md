@@ -26,9 +26,9 @@
 | Root directory | 空欄（リポジトリ直下） |
 | 環境変数 NODE_VERSION | 22 |
 
-5. 「Save and Deploy」を押します。成功画面に表示される `https://…pages.dev` が、スマホからも見られるURLです。実際のURLは公開時に決まります。
+5. 「Save and Deploy」を押します。現在の公開URLは https://web-tensho.pages.dev/ です。スマホからも閲覧できます。
 
-GitHubへ更新を保存すると、Cloudflare Pagesが自動で再ビルド・再公開します。この構成は静的サイトなので、Cloudflare用のAstroアダプターやデプロイコマンドの追加は不要です。
+GitHubへ更新を保存すると、Cloudflare Pagesが自動で再ビルド・再公開します。表示部分は静的サイトのままです。認証用の `functions/` はCloudflareが別途処理するため、Cloudflare用のAstroアダプターや追加のデプロイコマンドは不要です。
 
 ## 3. 最初に確認するところ
 
@@ -36,11 +36,9 @@ GitHubへ更新を保存すると、Cloudflare Pagesが自動で再ビルド・�
 
 ## CMSについて
 
-`/admin/` の画面とGitHubの接続先は準備済みです。**Cloudflare Pagesでサイトを公開するだけでは、Decap CMSのGitHubログインはまだ使えません。** GitHub OAuthを仲介する認証サービスの設定が必要です。現在の設定はDecap標準のNetlify OAuthを使用する構成です。
+`/admin/` の認証はCloudflare Pages Functionsの `/api/auth` と `/api/callback` を使用します。Netlifyを経由しません。`public/_routes.json` により認証URLだけをFunctionsの対象とし、通常ページは静的配信のままです。
 
-まずPagesのURLでデザインと動きを確認し、そのURLが決まった後に、Pages用のOAuthサービス（Cloudflare Worker等）かNetlifyの認証サービスを接続します。Client Secretは認証サービスの秘密情報として登録し、公開ソースには保存しません。
-
-以前のNetlifyサイトをそのまま使用する選択肢もあります。既存NetlifyプロジェクトをこのGitHubリポジトリへ接続する方法は [CMS_SETUP.md](CMS_SETUP.md) を参照してください。
+GitHub OAuth AppのCallback URL変更と、CloudflareのProduction環境への `GITHUB_CLIENT_ID` / `GITHUB_CLIENT_SECRET` 登録が必要です。Secretは必ず暗号化設定へ保存し、設定後に再デプロイします。詳しい手順は [CMS_SETUP.md](CMS_SETUP.md) を参照してください。
 
 ## 公式手順
 

@@ -39,4 +39,4 @@ GitHubリポジトリは `ten10-angel/Web-Tensho-` です。Cloudflare Pagesで�
 - 公開表示をオフにした記事は一覧・詳細ページの両方から除外
 - WORKは複数写真、JOURNALはタイトル省略、ESSAYはMarkdownの長文に対応
 
-[CMS_SETUP.md](CMS_SETUP.md) に編集方法とNetlifyでの認証手順をまとめています。Cloudflare Pagesを使う場合の認証の違いは [DEPLOY.md](DEPLOY.md) を参照してください。
+[CMS_SETUP.md](CMS_SETUP.md) に編集方法とCloudflare Pagesでの認証手順をまとめています。認証処理は `functions/api/[[route]].js` で実行し、SecretはCloudflareの暗号化設定に保存します。`npm test` で認証ロジックのテストを実行できます。
